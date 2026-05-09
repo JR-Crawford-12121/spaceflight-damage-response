@@ -60,6 +60,8 @@ Plain-English notes for the main files under `outputs/`. None of these files dia
 
 **How to read it:** Sort by `gene_signal`; check `pathway`, `dataset_name`, `cell_type`, `effect_size`, `adjusted_p_value`. For OSD-569, IDs should match the mapping integrity checks when the pipeline reports success.
 
+This table may be grouped by dataset/pathway depending on export order. For the clearest ranked follow-up list, use `outputs/tables/follow_up_priorities.csv` or sort this file by `gene_signal` descending.
+
 **What not to overclaim:** A high `gene_signal` means “worth follow-up in this scoring framework,” not “this gene is damaged.”
 
 ---
