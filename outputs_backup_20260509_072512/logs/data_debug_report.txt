@@ -1,0 +1,37 @@
+Spaceflight damage-response pipeline — data debug report
+(standardized columns after loaders; gene = HGNC or raw ID)
+
+========================================================================
+dataset_name: OSD-569_whole_blood_RNA
+detected gene column (standardized): gene
+detected effect-size column: effect_size
+detected adjusted p-value column: adjusted_p_value
+number of rows: 61852
+number of unique genes: 61852
+first 20 gene names (alphabetical): ENSG00000000003.15, ENSG00000000005.6, ENSG00000000419.14, ENSG00000000457.14, ENSG00000000460.17, ENSG00000000938.13, ENSG00000000971.17, ENSG00000001036.14, ENSG00000001084.13, ENSG00000001167.15, ENSG00000001460.18, ENSG00000001461.17, ENSG00000001497.18, ENSG00000001561.7, ENSG00000001617.12, ENSG00000001626.18, ENSG00000001629.10, ENSG00000001630.18, ENSG00000001631.17, ENSG00000002016.18
+overlap count with each curated gene set (unique genes):
+  DNA_repair: 0
+  apoptosis: 0
+  cell_cycle_checkpoint: 0
+  oxidative_stress: 0
+  p53_pathway: 0
+genes matching ANY curated pathway symbol: 0
+
+========================================================================
+dataset_name: OSD-570_PBMC_snRNA
+detected gene column (standardized): gene
+detected effect-size column: effect_size
+detected adjusted p-value column: adjusted_p_value
+number of rows: 8266
+number of unique genes: 2577
+first 20 gene names (alphabetical): A2M, A2M-AS1, AAK1, ABCA5, ABCB4, ABCC3, ABCD2, ABHD10, ABHD15-AS1, ABHD17B, ABHD3, ABHD5, ABI1, ABLIM1, AC002460.2, AC002463.1, AC003681.1, AC005670.3, AC006230.1, AC006369.1
+overlap count with each curated gene set (unique genes):
+  DNA_repair: 4
+  apoptosis: 4
+  cell_cycle_checkpoint: 3
+  oxidative_stress: 5
+  p53_pathway: 1
+genes matching ANY curated pathway symbol: 15
+
+load_report (brief)
+{'osd569_path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\raw\\GLDS-561_long-readRNAseq_Direct_RNA_seq_Gene_Expression_Processed.xlsx', 'osd570_path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\raw\\GLDS-562_snRNA-Seq_PBMC_Gene_Expression_snRNA-seq_Processed_Data.xlsx', 'mapping_path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\processed\\ensembl_to_symbol.tsv', 'mapping_loaded': False, 'errors': [], 'notes': [], 'osd570_raw_column_detection': {'gene_column': 'Gene', 'effect_column': 'avg_log2FC', 'adjusted_p_column': 'p_val_adj', 'raw_p_column': 'p_val', 'meta_columns': {'comparison': None, 'timepoint': None, 'sample': None, 'subject': None, 'crew_member': None, 'cell_type': 'Cell Type'}, 'notes': []}}

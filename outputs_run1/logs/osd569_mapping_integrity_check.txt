@@ -1,0 +1,16 @@
+OSD-569 mapping integrity check
+(pathway-level top genes — after row-identity fix and optional row drops)
+
+checked_rows (OSD-569 rows before drop): 77
+mismatched_rows (failed Ensembl→gene vs mapping file): 0
+passed (no mismatches among verifiable rows): True
+osd569_rows_removed from export: 0
+
+OSD-569 mapping integrity check passed: all verifiable top-gene rows match original_gene_id → gene symbol mapping.
+
+### Canonical Ensembl regression (spot-checks on final export)
+  ENSG00000012048 → expected 'BRCA1' | present=True | match=True | observed='BRCA1'
+  ENSG00000079246 → expected 'XRCC5' | present=True | match=True | observed='XRCC5'
+  ENSG00000012061 → expected 'ERCC1' | present=True | match=True | observed='ERCC1'
+  ENSG00000141510 → expected 'TP53' | present=True | match=True | observed='TP53'
+  ENSG00000149311 → expected 'ATM' | present=True | match=True | observed='ATM'

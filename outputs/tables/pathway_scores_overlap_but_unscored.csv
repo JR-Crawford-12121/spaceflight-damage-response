@@ -1,0 +1,1 @@
+dataset_name,comparison,cell_type,pathway,pathway_rank_metric,evidence_tier,average_signed_effect,average_absolute_effect,overlapping_gene_count,upregulated_gene_count,downregulated_gene_count,significant_gene_count,direction,interpretation_label

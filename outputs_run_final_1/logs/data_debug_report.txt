@@ -1,0 +1,92 @@
+Spaceflight damage-response pipeline — data debug report
+(standardized columns after loaders; gene column used for overlap = HGNC or cleaned ID)
+
+### Global: Ensembl → HGNC mapping file (OSD-569)
+  mapping file path: C:\Users\jrcra\spaceflight-damage-response\data\processed\ensembl_to_symbol.tsv
+  mapping file found on disk: yes
+  mapping pairs loaded (dictionary size): 63
+  mapping usable for OSD-569 (pairs > 0): yes
+  detected Ensembl column: ensembl_gene_id
+  detected HGNC/symbol column: hgnc_symbol
+  OSD-569 DE table (unique cleaned Ensembl IDs):
+    total_unique_ensembl_ids: 61806
+    mapped_unique_ids: 63
+    unmapped_unique_ids: 61743
+    percent_mapped: 0.1
+    unique genes matching ANY curated pathway symbol (before mapping / Ensembl-only identifiers): 0
+    unique genes matching ANY curated pathway symbol (after mapping / standardized gene column): 63
+    first 20 example mappings (Ensembl -> symbol):
+      ENSG00000002330 -> BAD
+      ENSG00000012048 -> BRCA1
+      ENSG00000012061 -> ERCC1
+      ENSG00000015475 -> BID
+      ENSG00000026103 -> FAS
+      ENSG00000048392 -> RRM2B
+      ENSG00000051180 -> RAD51
+      ENSG00000064012 -> CASP8
+      ENSG00000073050 -> XRCC1
+      ENSG00000076242 -> MLH1
+      ENSG00000079246 -> XRCC5
+      ENSG00000079999 -> KEAP1
+      ENSG00000080546 -> SESN1
+      ENSG00000087088 -> BAX
+      ENSG00000095002 -> MSH2
+      ENSG00000099860 -> GADD45B
+      ENSG00000100292 -> HMOX1
+      ENSG00000101412 -> E2F1
+      ENSG00000104687 -> GSR
+      ENSG00000105327 -> BBC3
+
+### OSD-569 numeric status
+  selected_sheet: I4-LP2
+  selected_comparison (metadata): '(R+82) vs (L-92, L-44, L-3)'
+  comparison_matches_notebook_expected: True
+  expected_comparison_canonical: (R+82)_vs_(L-92_L-44_L-3)
+  effect_size_source_column: DESeq2_log2FC
+  adjusted_p_value_source_column: DESeq2_adjusted p-value
+  effect_size_non_null_count: 61852
+  adjusted_p_value_non_null_count: 18418
+  mapped_curated_genes_with_effect_size: 63
+  mapped_curated_genes_with_adjusted_p_value: 61
+  osd569_scoreable: True
+
+  Full mapping how-to: docs/ENSEMBL_MAPPING.md and scripts/create_ensembl_mapping_template.py.
+
+### Pathway scoring summary (max overlapping genes per dataset)
+  OSD-569_whole_blood_RNA: max overlapping_gene_count across pathway rows = 21
+  OSD-570_PBMC_snRNA: max overlapping_gene_count across pathway rows = 4
+
+========================================================================
+dataset_name: OSD-569_whole_blood_RNA
+detected gene column (standardized): gene
+detected effect-size column: effect_size
+detected adjusted p-value column: adjusted_p_value
+number of rows: 61852
+number of unique genes: 61806
+first 20 gene names (alphabetical): APAF1, ATM, ATR, BAD, BAX, BBC3, BCL2, BID, BRCA1, BRCA2, BTG2, CASP3, CASP7, CASP8, CASP9, CAT, CCNG1, CDC25A, CDC25C, CDKN1A
+overlap count with each curated gene set (unique genes):
+  DNA_repair: 21
+  apoptosis: 14
+  cell_cycle_checkpoint: 13
+  oxidative_stress: 15
+  p53_pathway: 14
+genes matching ANY curated pathway symbol: 63
+
+========================================================================
+dataset_name: OSD-570_PBMC_snRNA
+detected gene column (standardized): gene
+detected effect-size column: effect_size
+detected adjusted p-value column: adjusted_p_value
+number of rows: 8266
+number of unique genes: 2577
+first 20 gene names (alphabetical): A2M, A2M-AS1, AAK1, ABCA5, ABCB4, ABCC3, ABCD2, ABHD10, ABHD15-AS1, ABHD17B, ABHD3, ABHD5, ABI1, ABLIM1, AC002460.2, AC002463.1, AC003681.1, AC005670.3, AC006230.1, AC006369.1
+overlap count with each curated gene set (unique genes):
+  DNA_repair: 4
+  apoptosis: 4
+  cell_cycle_checkpoint: 3
+  oxidative_stress: 5
+  p53_pathway: 1
+genes matching ANY curated pathway symbol: 15
+
+load_report (brief)
+{'osd569_path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\raw\\GLDS-561_long-readRNAseq_Direct_RNA_seq_Gene_Expression_Processed.xlsx', 'osd570_path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\raw\\GLDS-562_snRNA-Seq_PBMC_Gene_Expression_snRNA-seq_Processed_Data.xlsx', 'mapping_path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\processed\\ensembl_to_symbol.tsv', 'mapping_loaded': True, 'errors': [], 'notes': ['Loaded 63 Ensembl→symbol pairs from ensembl_to_symbol.tsv (columns ensembl_gene_id → hgnc_symbol).'], 'mapping_file_found': True, 'ensembl_mapping_file_meta': {'path': 'C:\\Users\\jrcra\\spaceflight-damage-response\\data\\processed\\ensembl_to_symbol.tsv', 'found': True, 'ensembl_column': 'ensembl_gene_id', 'symbol_column': 'hgnc_symbol', 'n_rows_file': 63, 'n_pairs_loaded': 63}, 'osd569_numeric_status': {'selected_sheet': 'I4-LP2', 'comparison': '(R+82) vs (L-92, L-44, L-3)', 'comparison_matches_notebook_expected': True, 'expected_comparison_canonical': '(R+82)_vs_(L-92_L-44_L-3)', 'header_row_0_index': 7, 'effect_size_source_column': 'DESeq2_log2FC', 'raw_p_value_source_column': 'DESeq2_p-value', 'adjusted_p_value_source_column': 'DESeq2_adjusted p-value', 'candidate_effect_non_null_count': 61852, 'candidate_raw_p_non_null_count': 18418, 'candidate_adj_p_non_null_count': 18418, 'standardized_effect_non_null_count': 61852, 'standardized_raw_p_non_null_count': 18418, 'standardized_adj_p_non_null_count': 18418, 'effect_size_non_null_count': 61852, 'raw_p_value_non_null_count': 18418, 'adjusted_p_value_non_null_count': 18418, 'total_rows': 61852, 'mapped_curated_genes_with_effect_size': 63, 'mapped_curated_genes_with_adjusted_p_value': 61, 'has_curated_pathway_overlap': True, 'mapping_loaded': True, 'osd569_scoreable': True, 'osd569_partial_score_note': '', 'alignment_warning': '', 'loader_warnings': [], 'candidate_column_audit': {'effect_size': [{'column': 'DESeq2_log2FC', 'normalized': 'deseq2_log2fc', 'non_null_numeric_count': 61852, 'first_5_raw': ['np.float64(0.002)', 'np.float64(0.0)', 'np.float64(0.079)', 'np.float64(-0.006)', 'np.float64(0.001)'], 'first_10_numeric_converted': [0.002, 0.0, 0.079, -0.006, 0.001, -0.231, 0.004, 0.029, -0.008, 0.033], 'numeric_min': -0.364, 'numeric_max': 0.326, 'priority_rule': '1_DESeq2_log2FC_exact', 'accepted': True, 'rejected_reason': ''}], 'raw_p_value': [{'column': 'DESeq2_p-value', 'normalized': 'deseq2_p-value', 'non_null_numeric_count': 18418, 'first_5_raw': ['np.float64(0.808764974551108)', 'np.float64(nan)', 'np.float64(0.207828612379485)', 'np.float64(0.858052539260796)', 'np.float64(0.954853140369066)'], 'first_10_numeric_converted': [0.808764974551108, None, 0.207828612379485, 0.858052539260796, 0.954853140369066, 0.0102072483644241, 0.691286362106168, 0.633604417211705, 0.865476525956102, 0.54032179348172], 'numeric_min': 3.16388796253646e-05, 'numeric_max': 0.99988614537983, 'priority_rule': '1_DESeq2_p-value_exact', 'accepted': True, 'rejected_reason': ''}], 'adjusted_p_value': [{'column': 'DESeq2_adjusted p-value', 'normalized': 'deseq2_adjusted_p-value', 'non_null_numeric_count': 18418, 'first_5_raw': ['np.float64(0.997120482783777)', 'np.float64(nan)', 'np.float64(0.997120482783777)', 'np.float64(0.997120482783777)', 'np.float64(0.997120482783777)'], 'first_10_numeric_converted': [0.997120482783777, None, 0.997120482783777, 0.997120482783777, 0.997120482783777, 0.997120482783777, 0.997120482783777, 0.997120482783777, 0.997120482783777, 0.997120482783777], 'numeric_min': 0.353945402122429, 'numeric_max': 0.99988614537983, 'priority_rule': '1_DESeq2_adjusted_p', 'accepted': True, 'rejected_reason': ''}]}, 'multiindex_column_repr_sample': ["('C001', 'L-92')", "('C001', 'L-44')", "('C001', 'L-3')", "('C001', 'R+82')", "('C002', 'L-92')", "('C002', 'L-44')", "('C002', 'L-3')", "('C002', 'R+82')", "('C003', 'L-92')", "('C003', 'L-44')", "('C003', 'L-3')", "('C003', 'R+82')", "('C004', 'L-92')", "('C004', 'L-44')", "('C004', 'L-3')", "('C004', 'R+82')", "('C001', 'L-92.1')", "('C001', 'L-44.1')", "('C001', 'L-3.1')", "('C001', 'R+82.1')", "('C002', 'L-92.1')", "('C002', 'L-44.1')", "('C002', 'L-3.1')", "('C002', 'R+82.1')", "('C003', 'L-92.1')"]}, 'osd569_ensembl_mapping': {'total_unique_ensembl_ids': 61806, 'mapped_unique_ids': 63, 'unmapped_unique_ids': 61743, 'percent_mapped': 0.1, 'example_mappings': ['ENSG00000002330 -> BAD', 'ENSG00000012048 -> BRCA1', 'ENSG00000012061 -> ERCC1', 'ENSG00000015475 -> BID', 'ENSG00000026103 -> FAS', 'ENSG00000048392 -> RRM2B', 'ENSG00000051180 -> RAD51', 'ENSG00000064012 -> CASP8', 'ENSG00000073050 -> XRCC1', 'ENSG00000076242 -> MLH1', 'ENSG00000079246 -> XRCC5', 'ENSG00000079999 -> KEAP1', 'ENSG00000080546 -> SESN1', 'ENSG00000087088 -> BAX', 'ENSG00000095002 -> MSH2', 'ENSG00000099860 -> GADD45B', 'ENSG00000100292 -> HMOX1', 'ENSG00000101412 -> E2F1', 'ENSG00000104687 -> GSR', 'ENSG00000105327 -> BBC3'], 'unique_genes_matching_any_curated_pathway_before_mapping': 0, 'unique_genes_matching_any_curated_pathway_after_mapping': 63}, 'osd570_raw_column_detection': {'gene_column': 'Gene', 'effect_column': 'avg_log2FC', 'adjusted_p_column': 'p_val_adj', 'raw_p_column': 'p_val', 'meta_columns': {'comparison': None, 'timepoint': None, 'sample': None, 'subject': None, 'crew_member': None, 'cell_type': 'Cell Type'}, 'notes': []}}
